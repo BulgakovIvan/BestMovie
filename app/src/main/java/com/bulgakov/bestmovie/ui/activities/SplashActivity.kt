@@ -1,4 +1,4 @@
-package com.bulgakov.bestmovie.ui.activity
+package com.bulgakov.bestmovie.ui.activities
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -12,7 +12,9 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import com.bulgakov.bestmovie.R
 import com.bulgakov.bestmovie.utils.MAIN_ACTIVITY_DELAY
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
