@@ -1,7 +1,6 @@
 package com.bulgakov.bestmovie.ui.activities
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -27,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val adapter = MovieAdapter(this)
+        val adapter = MovieAdapter()
         val decoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
 
         binding.rvMovies.apply {

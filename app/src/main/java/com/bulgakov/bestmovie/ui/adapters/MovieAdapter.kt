@@ -11,7 +11,7 @@ import com.bulgakov.bestmovie.ui.activities.MainActivity
 import com.bumptech.glide.Glide
 
 
-class MovieAdapter(private val activity: MainActivity) :
+class MovieAdapter :
     PagingDataAdapter<Movie, MovieAdapter.MovieViewHolder>(REPO_COMPARATOR) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
@@ -26,7 +26,7 @@ class MovieAdapter(private val activity: MainActivity) :
             with(holder.binding) {
                 title.text = movie.title
                 description.text = movie.description
-                Glide.with(activity)
+                Glide.with(image.context)
                     .load(movie.imageUrl)
                     .into(image)
             }
