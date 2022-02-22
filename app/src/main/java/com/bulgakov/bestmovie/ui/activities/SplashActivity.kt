@@ -17,23 +17,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        makeFullScreen()
-        setContentView(R.layout.activity_splash)
-
-        Handler(Looper.getMainLooper()).postDelayed(
-            {
-                startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-                finish()
-            },
-            MAIN_ACTIVITY_DELAY
-        )
-
-    }
-
-    private fun makeFullScreen() {
-        requestWindowFeature(Window.FEATURE_NO_TITLE)
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.insetsController?.hide(WindowInsets.Type.statusBars())
@@ -44,7 +29,21 @@ class SplashActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
             )
         }
-
+    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
+        setContentView(R.layout.activity_splash)
         supportActionBar?.hide()
+
+
+        Handler(Looper.getMainLooper()).postDelayed(
+            {
+                startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                finish()
+            },
+            MAIN_ACTIVITY_DELAY
+        )
+
     }
 }
