@@ -1,18 +1,15 @@
-## 1
 name: detekt
-## 2
+
 on:
- push:
-   branches:
-   - main
- pull_request:
-   branches:
-   - main
-workflow_dispatch:
-## 3
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
+
+  workflow_dispatch:
+
 jobs:
  detekt:
-   ## 4
    runs-on: ubuntu-latest
    steps:
       - name: "checkout"
