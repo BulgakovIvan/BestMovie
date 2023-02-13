@@ -9,8 +9,7 @@ on:
      runs-on: ubuntu-latest
 
      steps:
-       - name: "checkout"
-         uses: actions/checkout@v3
-
-       - name: Detekt all
-         uses: natiginfo/action-detekt-all@1.22.0
+        - name: "checkout"
+          uses: actions/checkout@v2
+        - name: "detekt"
+          uses: natiginfo/action-detekt-all@1.17.0
